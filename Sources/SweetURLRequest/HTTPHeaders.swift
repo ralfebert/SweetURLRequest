@@ -33,7 +33,7 @@ public struct HTTPHeaders {
      The Accept request HTTP header advertises which content types the client is able to understand.
      @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept
      */
-    var accept: ContentType? {
+    public var accept: ContentType? {
         get {
             if let value = dictionary[HTTPHeader.accept.rawValue] {
                 return ContentType(rawValue: value)
@@ -50,7 +50,7 @@ public struct HTTPHeaders {
      In requests, (such as POST or PUT), the client tells the server what type of data is sent in the body.
      @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type
      */
-    var contentType: ContentType? {
+    public var contentType: ContentType? {
         get {
             if let value = dictionary[HTTPHeader.contentType.rawValue] {
                 return ContentType(rawValue: value)

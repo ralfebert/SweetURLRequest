@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-@testable import SweetURLRequest
+import SweetURLRequest
 import XCTest
 
 final class SweetURLRequestTests: XCTestCase {
