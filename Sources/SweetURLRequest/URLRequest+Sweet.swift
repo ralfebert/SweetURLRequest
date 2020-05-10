@@ -49,6 +49,12 @@ public extension URLRequest {
         }
     }
 
+    init<T: Encodable>(method: HTTPMethod, url: URL, parameters: [String: String] = [:], jsonBody: T, encoder: JSONEncoder = JSONEncoder()) {
+        self.init(method: method, url: url, parameters: parameters)
+        self.headers.contentType = .json
+        self.httpBody = try! encoder.encode(jsonBody)
+    }
+
     var headers: HTTPHeaders {
         get {
             HTTPHeaders(dictionary: self.allHTTPHeaderFields ?? [:])

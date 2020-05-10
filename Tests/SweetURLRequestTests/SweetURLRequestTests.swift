@@ -23,6 +23,10 @@
 import SweetURLRequest
 import XCTest
 
+struct Person: Codable {
+    var name: String
+}
+
 final class SweetURLRequestTests: XCTestCase {
 
     func testMethod() {
@@ -51,6 +55,12 @@ final class SweetURLRequestTests: XCTestCase {
         XCTAssertEqual("http://www.example.com", request.url?.absoluteString)
         XCTAssertEqual("param1=%C3%A4%C3%B6%C3%BC&param2=foo%20bar", String(data: request.httpBody ?? Data(), encoding: .ascii))
         XCTAssertEqual(.formUrlEncoded, request.headers.contentType)
+    }
+
+    func testJsonBody() {
+        let request = URLRequest(method: .post, url: URL(string: "http://www.example.com")!, jsonBody: Person(name: "Bob"))
+        XCTAssertEqual("{\"name\":\"Bob\"}", String(data: request.httpBody ?? Data(), encoding: .ascii))
+        XCTAssertEqual(.json, request.headers.contentType)
     }
 
 }

@@ -31,3 +31,14 @@ let request = URLRequest(
 ```
 
 Parameters will be URL-encoded for GET/HEAD/DELETE and sent as application/x-www-form-urlencoded body for other methods by default.
+
+## Passing JSON as HTTP body
+
+```swift
+let request = URLRequest(
+    method: .post,
+    url: URL(string: "http://www.example.com")!,
+    jsonBody: Person(name: "Bob"))
+```
+
+This automatically uses JSONEncoder to serialize the given object and sets an appropriate Content-Type header.
