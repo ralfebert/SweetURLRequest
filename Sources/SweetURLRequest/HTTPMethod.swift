@@ -22,7 +22,7 @@
 
 /**
  Enum to represent a HTTP request method.
- 
+
  See also [HTTP request methods](https://developer.mozilla.org/de/docs/Web/HTTP/Methods)
  */
 public enum HTTPMethod: String {

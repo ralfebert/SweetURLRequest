@@ -23,6 +23,7 @@
 private enum HTTPHeader: String {
     case accept = "Accept"
     case contentType = "Content-Type"
+    case authorization = "Authorization"
 }
 
 public struct HTTPHeaders {
@@ -58,6 +59,18 @@ public struct HTTPHeaders {
         }
         set {
             self.dictionary[HTTPHeader.contentType.rawValue] = newValue?.rawValue
+        }
+    }
+
+    /**
+     The [HTTP Authorization request header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) contains the credentials to authenticate a user agent with a server.
+     */
+    public var authorization: String? {
+        get {
+            self.dictionary[HTTPHeader.authorization.rawValue]
+        }
+        set {
+            self.dictionary[HTTPHeader.authorization.rawValue] = newValue
         }
     }
 

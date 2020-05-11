@@ -18,6 +18,7 @@ SweetURLRequest provides typed properties to set common HTTP headers:
 var request = URLRequest(url: URL(string: "http://www.example.com")!)
 request.headers.accept = ContentType.json
 request.headers.contentType = ContentType.xml
+request.headers.authorization = "Bearer xyz"
 ```
 
 ## Sending parameters

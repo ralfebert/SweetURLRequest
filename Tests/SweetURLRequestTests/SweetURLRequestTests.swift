@@ -36,13 +36,23 @@ final class SweetURLRequestTests: XCTestCase {
 
     func testHeaderSubscript() {
         var request = URLRequest(url: URL(string: "http://www.example.com")!)
+        request.headers.accept = ContentType.xml
         request.headers.accept = ContentType.json
-        request.headers.contentType = ContentType.xml
-        XCTAssertEqual(["Content-Type": "application/xml", "Accept": "application/json"], request.allHTTPHeaderFields)
+        XCTAssertEqual(["Accept": "application/json"], request.allHTTPHeaderFields)
         XCTAssertEqual(.json, request.headers.accept)
         request.headers.accept = nil
-        request.headers.contentType = nil
         XCTAssertEqual([:], request.allHTTPHeaderFields)
+    }
+
+    func testHeaders() {
+        var request = URLRequest(url: URL(string: "http://www.example.com")!)
+        request.headers.accept = ContentType.json
+        request.headers.contentType = ContentType.xml
+        request.headers.authorization = "Bearer xyz"
+        XCTAssertEqual(["Content-Type": "application/xml", "Authorization": "Bearer xyz", "Accept": "application/json"], request.allHTTPHeaderFields)
+        XCTAssertEqual(.json, request.headers.accept)
+        XCTAssertEqual(.xml, request.headers.contentType)
+        XCTAssertEqual("Bearer xyz", request.headers.authorization)
     }
 
     func testGetParameters() {
