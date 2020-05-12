@@ -1,18 +1,20 @@
 # SweetURLRequest
 
-`SweetURLRequest` provides convenience methods to setup an [URLRequest](https://developer.apple.com/documentation/foundation/urlrequest):
+`SweetURLRequest` provides convenience methods to setup an [URLRequest](https://developer.apple.com/documentation/foundation/urlrequest).
 
-## Setting the HTTP method
+## Features
 
-SweetURLRequest provides a typesafe enum for setting the HTTP method:
+### HTTP method
+
+Pass the method using a enum:
 
 ```swift
 URLRequest(method: .post, url: URL(string: "http://www.example.com")!)
 ```
 
-## Setting HTTP headers
+### HTTP headers
 
-SweetURLRequest provides typed properties to set common HTTP headers:
+Properties to set common HTTP headers:
 
 ```swift
 var request = URLRequest(url: URL(string: "http://www.example.com")!)
@@ -21,7 +23,7 @@ request.headers.contentType = ContentType.xml
 request.headers.authorization = "Bearer xyz"
 ```
 
-## Sending parameters
+### Parameters
 
 ```swift
 let request = URLRequest(
@@ -33,7 +35,7 @@ let request = URLRequest(
 
 Parameters will be URL-encoded for GET/HEAD/DELETE and sent as application/x-www-form-urlencoded body for other methods by default.
 
-## Passing JSON as HTTP body
+### JSON as HTTP body
 
 ```swift
 let request = URLRequest(
