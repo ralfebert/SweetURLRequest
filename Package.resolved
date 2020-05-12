@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "HttpEnums",
+        "repositoryURL": "https://github.com/ralfebert/HttpEnums.git",
+        "state": {
+          "branch": null,
+          "revision": "796d01d7e2a969821d09693c7037c7b95f7c53f4",
+          "version": "0.1.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

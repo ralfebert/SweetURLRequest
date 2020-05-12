@@ -20,11 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-private enum HTTPHeader: String {
-    case accept = "Accept"
-    case contentType = "Content-Type"
-    case authorization = "Authorization"
-}
+import HttpEnums
 
 public struct HTTPHeaders {
 

@@ -21,6 +21,7 @@
 // SOFTWARE.
 
 import Foundation
+import HttpEnums
 
 public extension URLRequest {
 

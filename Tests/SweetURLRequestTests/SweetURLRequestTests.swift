@@ -22,6 +22,7 @@
 
 import SweetURLRequest
 import XCTest
+import HttpEnums
 
 struct Person: Codable {
     var name: String
@@ -36,8 +37,8 @@ final class SweetURLRequestTests: XCTestCase {
 
     func testHeaderSubscript() {
         var request = URLRequest(url: URL(string: "http://www.example.com")!)
-        request.headers.accept = ContentType.xml
-        request.headers.accept = ContentType.json
+        request.headers.accept = .xml
+        request.headers.accept = .json
         XCTAssertEqual(["Accept": "application/json"], request.allHTTPHeaderFields)
         XCTAssertEqual(.json, request.headers.accept)
         request.headers.accept = nil
@@ -46,8 +47,8 @@ final class SweetURLRequestTests: XCTestCase {
 
     func testHeaders() {
         var request = URLRequest(url: URL(string: "http://www.example.com")!)
-        request.headers.accept = ContentType.json
-        request.headers.contentType = ContentType.xml
+        request.headers.accept = .json
+        request.headers.contentType = .xml
         request.headers.authorization = "Bearer xyz"
         XCTAssertEqual(["Content-Type": "application/xml", "Authorization": "Bearer xyz", "Accept": "application/json"], request.allHTTPHeaderFields)
         XCTAssertEqual(.json, request.headers.accept)
