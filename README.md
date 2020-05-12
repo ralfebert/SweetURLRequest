@@ -18,8 +18,8 @@ Properties to set common HTTP headers:
 
 ```swift
 var request = URLRequest(url: URL(string: "http://www.example.com")!)
-request.headers.accept = ContentType.json
-request.headers.contentType = ContentType.xml
+request.headers.accept = .json
+request.headers.contentType = .xml
 request.headers.authorization = "Bearer xyz"
 ```
 
