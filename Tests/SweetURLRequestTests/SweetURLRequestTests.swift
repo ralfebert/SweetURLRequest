@@ -22,7 +22,6 @@
 
 import SweetURLRequest
 import XCTest
-import HttpEnums
 
 struct Person: Codable {
     var name: String
