@@ -6,7 +6,7 @@
 
 ### HTTP method
 
-Pass the method using a enum:
+Pass the method using an enum:
 
 ```swift
 URLRequest(method: .post, url: URL(string: "http://www.example.com")!)
