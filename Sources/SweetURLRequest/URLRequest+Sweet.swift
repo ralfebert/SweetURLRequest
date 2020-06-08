@@ -33,7 +33,7 @@ public extension URLRequest {
        - url: The URL to use
        - parameters: Parameters will be URL-encoded for GET/HEAD/DELETE and sent as application/x-www-form-urlencoded body for other methods by default.
      */
-    init(method: HTTPMethod, url: URL, parameters: [String: String] = [:]) {
+    init(method: HTTPMethod, url: URL, parameters: [String: String?] = [:]) {
         self.init(url: url)
         self.httpMethod = method.rawValue
 

@@ -61,9 +61,9 @@ final class SweetURLRequestTests: XCTestCase {
     }
 
     func testPostParameters() {
-        let request = URLRequest(method: .post, url: URL(string: "http://www.example.com")!, parameters: ["param1": "äöü", "param2": "foo bar"])
+        let request = URLRequest(method: .post, url: URL(string: "http://www.example.com")!, parameters: ["param1": "äöü", "param2": nil, "param3": "foo bar"])
         XCTAssertEqual("http://www.example.com", request.url?.absoluteString)
-        XCTAssertEqual("param1=%C3%A4%C3%B6%C3%BC&param2=foo%20bar", String(data: request.httpBody ?? Data(), encoding: .ascii))
+        XCTAssertEqual("param1=%C3%A4%C3%B6%C3%BC&param2&param3=foo%20bar", String(data: request.httpBody ?? Data(), encoding: .ascii))
         XCTAssertEqual(.formUrlEncoded, request.headers.contentType)
     }
 
