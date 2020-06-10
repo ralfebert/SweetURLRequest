@@ -9,7 +9,10 @@
 Pass the method using an enum:
 
 ```swift
-URLRequest(method: .post, url: URL(string: "http://www.example.com")!)
+URLRequest(
+    method: .post,
+    url: URL(string: "http://www.example.com")!
+)
 ```
 
 ### HTTP headers
@@ -26,7 +29,7 @@ request.headers.authorization = "Bearer xyz"
 ### Parameters
 
 ```swift
-let request = URLRequest(
+URLRequest(
     method: .get,
     url: URL(string: "http://www.example.com")!,
     parameters: ["param1" : "äöü", "param2" : "foo bar"]
@@ -38,7 +41,7 @@ Parameters will be URL-encoded for GET/HEAD/DELETE and sent as application/x-www
 ### JSON as HTTP body
 
 ```swift
-let request = URLRequest(
+URLRequest(
     method: .post,
     url: URL(string: "http://www.example.com")!,
     jsonBody: Person(name: "Bob")
