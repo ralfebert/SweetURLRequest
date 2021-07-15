@@ -1,6 +1,6 @@
 // MIT License
 //
-// Copyright (c) 2020 Ralf Ebert
+// Copyright (c) 2021 Ralf Ebert
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -35,7 +35,7 @@ public extension URLRequest {
      */
     init(method: HTTPMethod, url: URL, parameters: [String: String?] = [:]) {
         self.init(url: url)
-        self.httpMethod = method.rawValue
+        self.httpMethod = method.name
 
         if !parameters.isEmpty {
             var components = URLComponents(url: url, resolvingAgainstBaseURL: true)!
