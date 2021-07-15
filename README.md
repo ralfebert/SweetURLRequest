@@ -1,6 +1,6 @@
 # SweetURLRequest
 
-`SweetURLRequest` provides convenience methods to setup an [URLRequest](https://developer.apple.com/documentation/foundation/urlrequest).
+`SweetURLRequest` provides convenience methods for creating [URLRequests](https://developer.apple.com/documentation/foundation/urlrequest).
 
 ## Features
 
