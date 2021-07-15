@@ -6,7 +6,9 @@
 ⚡Properties to set common HTTP headers  
 ⚡URL/Form/JSON encoded parameters
 
-## HTTP method as enum  
+## Examples
+
+### HTTP method as enum  
 
 ```swift
 URLRequest(
@@ -15,7 +17,7 @@ URLRequest(
 )
 ```
 
-## Properties to set common HTTP headers
+### Properties to set common HTTP headers
 
 ```swift
 var request = URLRequest(url: URL(string: "http://www.example.com")!)
@@ -24,7 +26,7 @@ request.headers.contentType = .xml
 request.headers.authorization = "Bearer xyz"
 ```
 
-## URL/Form/JSON encoded parameters
+### URL/Form/JSON encoded parameters
 
 Parameters will be URL-encoded for GET/HEAD/DELETE and sent as application/x-www-form-urlencoded body for other methods by default:
 
