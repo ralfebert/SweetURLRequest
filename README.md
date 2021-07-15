@@ -2,13 +2,13 @@
 
 `SweetURLRequest` provides convenience methods for creating [URLRequests](https://developer.apple.com/documentation/foundation/urlrequest):
 
-⚡HTTP method as enum  
-⚡Properties to set common HTTP headers  
-⚡URL/Form/JSON encoded parameters
+⚡ Constants for HTTP methods  
+⚡ Properties to set common HTTP headers  
+⚡ URL/Form/JSON encoded parameters
 
 ## Examples
 
-### HTTP method as enum  
+### Constants for HTTP methods
 
 ```swift
 URLRequest(
@@ -38,7 +38,7 @@ URLRequest(
 )
 ```
 
-You can also pass a JSON body, this will use JSONEncoder to serialize the given data and sets an appropriate Content-Type header:
+You can also pass a JSON body, this will use JSONEncoder to serialize the given data and set an appropriate Content-Type header:
 
 ```swift
 URLRequest(
