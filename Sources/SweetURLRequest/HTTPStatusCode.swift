@@ -255,7 +255,7 @@ public enum HTTPStatusCode: Error, Equatable, Hashable {
     case gatewayTimeout
 
     /// - The server does not support the HTTP protocol version used in the request.
-    case HTTPVersionNotSupported
+    case httpVersionNotSupported
 
     /// - Transparent content negotiation for the request results in a circular reference.
     case variantAlsoNegotiates
@@ -363,7 +363,7 @@ public enum HTTPStatusCode: Error, Equatable, Hashable {
         .badGateway: 502,
         .serviceUnavailable: 503,
         .gatewayTimeout: 504,
-        .HTTPVersionNotSupported: 505,
+        .httpVersionNotSupported: 505,
         .variantAlsoNegotiates: 506,
         .insufficientStorage: 507,
         .loopDetected: 508,
