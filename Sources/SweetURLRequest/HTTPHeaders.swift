@@ -24,19 +24,32 @@ public struct HTTPHeaders {
 
     var dictionary: [String: String]
 
-    /**
-     The [Accept request HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept) advertises which content types the client is able to understand.
-     */
-    public var accept: ContentType? {
+    private subscript(header: HTTPHeader) -> String? {
         get {
-            if let value = dictionary[HTTPHeader.accept.name] {
-                return ContentType(rawValue: value)
+            if let value = dictionary[header.name] {
+                return value
             } else {
                 return nil
             }
         }
         set {
-            self.dictionary[HTTPHeader.accept.name] = newValue?.rawValue
+            self.dictionary[header.name] = newValue
+        }
+    }
+
+    /**
+     The [Accept request HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept) advertises which content types the client is able to understand.
+     */
+    public var accept: ContentType? {
+        get {
+            if let value = self[HTTPHeader.accept] {
+                return ContentType(value)
+            } else {
+                return nil
+            }
+        }
+        set {
+            self[HTTPHeader.accept] = newValue?.name
         }
     }
 
@@ -45,14 +58,14 @@ public struct HTTPHeaders {
      */
     public var contentType: ContentType? {
         get {
-            if let value = dictionary[HTTPHeader.contentType.name] {
-                return ContentType(rawValue: value)
+            if let value = self[HTTPHeader.contentType] {
+                return ContentType(value)
             } else {
                 return nil
             }
         }
         set {
-            self.dictionary[HTTPHeader.contentType.name] = newValue?.rawValue
+            self[HTTPHeader.contentType] = newValue?.name
         }
     }
 
@@ -61,10 +74,10 @@ public struct HTTPHeaders {
      */
     public var authorization: String? {
         get {
-            self.dictionary[HTTPHeader.authorization.name]
+            self[HTTPHeader.authorization]
         }
         set {
-            self.dictionary[HTTPHeader.authorization.name] = newValue
+            self[HTTPHeader.authorization] = newValue
         }
     }
 

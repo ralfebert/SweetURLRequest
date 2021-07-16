@@ -2,146 +2,153 @@
  Common MIME types
  Generated from https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
  */
-public enum ContentType: String {
+public struct ContentType: Equatable, Hashable {
+
+    public let name: String
+
+    public init(_ name: String) {
+        self.name = name
+    }
 
     /// AAC audio
-    case aac = "audio/aac"
+    public static let aac = Self("audio/aac")
 
     /// AVI: Audio Video Interleave
-    case avi = "video/x-msvideo"
+    public static let avi = Self("video/x-msvideo")
 
     /// Any kind of binary data
-    case octetStream = "application/octet-stream"
+    public static let octetStream = Self("application/octet-stream")
 
     /// Bitmap Graphics
-    case bmp = "image/bmp"
+    public static let bmp = Self("image/bmp")
 
     /// BZip archive
-    case bzip = "application/x-bzip"
+    public static let bzip = Self("application/x-bzip")
 
     /// BZip2 archive
-    case bzip2 = "application/x-bzip2"
+    public static let bzip2 = Self("application/x-bzip2")
 
     /// Cascading Style Sheets (CSS)
-    case css = "text/css"
+    public static let css = Self("text/css")
 
     /// Comma-separated values (CSV)
-    case csv = "text/csv"
+    public static let csv = Self("text/csv")
 
     /// Microsoft Word
-    case word = "application/msword"
+    public static let word = Self("application/msword")
 
     /// Electronic publication (EPUB)
-    case epub = "application/epub+zip"
+    public static let epub = Self("application/epub+zip")
 
     /// GZip Compressed Archive
-    case gzip = "application/gzip"
+    public static let gzip = Self("application/gzip")
 
     /// Graphics Interchange Format (GIF)
-    case gif = "image/gif"
+    public static let gif = Self("image/gif")
 
     /// HyperText Markup Language (HTML)
-    case html = "text/html"
+    public static let html = Self("text/html")
 
     /// iCalendar format
-    case iCal = "text/calendar"
+    public static let iCal = Self("text/calendar")
 
     /// JPEG images
-    case jpeg = "image/jpeg"
+    public static let jpeg = Self("image/jpeg")
 
     /// JavaScript
-    case javascript = "text/javascript"
+    public static let javascript = Self("text/javascript")
 
     /// JSON format
-    case json = "application/json"
+    public static let json = Self("application/json")
 
     /// Musical Instrument Digital Interface (MIDI)
-    case midi = "audio/midi"
+    public static let midi = Self("audio/midi")
 
     /// MP3 audio
-    case mpegAudio = "audio/mpeg"
+    public static let mpegAudio = Self("audio/mpeg")
 
     /// MPEG Video
-    case mpegVideo = "video/mpeg"
+    public static let mpegVideo = Self("video/mpeg")
 
     /// OGG audio
-    case oggAudio = "audio/ogg"
+    public static let oggAudio = Self("audio/ogg")
 
     /// OGG video
-    case oggVideo = "video/ogg"
+    public static let oggVideo = Self("video/ogg")
 
     /// OGG
-    case ogg = "application/ogg"
+    public static let ogg = Self("application/ogg")
 
     /// Opus audio
-    case opusAudio = "audio/opus"
+    public static let opusAudio = Self("audio/opus")
 
     /// OpenType font
-    case openType = "font/otf"
+    public static let openType = Self("font/otf")
 
     /// Portable Network Graphics
-    case png = "image/png"
+    public static let png = Self("image/png")
 
     /// Adobe Portable Document Format (PDF)
-    case pdf = "application/pdf"
+    public static let pdf = Self("application/pdf")
 
     /// Rich Text Format (RTF)
-    case rtf = "application/rtf"
+    public static let rtf = Self("application/rtf")
 
     /// Scalable Vector Graphics (SVG)
-    case svg = "image/svg+xml"
+    public static let svg = Self("image/svg+xml")
 
     /// Small web format (SWF) or Adobe Flash document
-    case swf = "application/x-shockwave-flash"
+    public static let swf = Self("application/x-shockwave-flash")
 
     /// Tape Archive (TAR)
-    case tar = "application/x-tar"
+    public static let tar = Self("application/x-tar")
 
     /// Tagged Image File Format (TIFF)
-    case tiff = "image/tiff"
+    public static let tiff = Self("image/tiff")
 
     /// MPEG transport stream
-    case mpegStream = "video/mp2t"
+    public static let mpegStream = Self("video/mp2t")
 
     /// TrueType Font
-    case ttf = "font/ttf"
+    public static let ttf = Self("font/ttf")
 
     /// Text
-    case text = "text/plain"
+    public static let text = Self("text/plain")
 
     /// Waveform Audio Format
-    case wav = "audio/wav"
+    public static let wav = Self("audio/wav")
 
     /// WEBM audio
-    case webmAudio = "audio/webm"
+    public static let webmAudio = Self("audio/webm")
 
     /// WEBM video
-    case webmVideo = "video/webm"
+    public static let webmVideo = Self("video/webm")
 
     /// WEBP image
-    case webp = "image/webp"
+    public static let webp = Self("image/webp")
 
     /// Web Open Font Format (WOFF)
-    case woff = "font/woff"
+    public static let woff = Self("font/woff")
 
     /// Web Open Font Format (WOFF)
-    case woff2 = "font/woff2"
+    public static let woff2 = Self("font/woff2")
 
     /// XHTML
-    case xhtml = "application/xhtml+xml"
+    public static let xhtml = Self("application/xhtml+xml")
 
     /// XML
-    case xml = "application/xml"
+    public static let xml = Self("application/xml")
 
     /// XML
-    case xmlText = "text/xml"
+    public static let xmlText = Self("text/xml")
 
     /// ZIP archive
-    case zip = "application/zip"
+    public static let zip = Self("application/zip")
 
     // HTTP form: keys and values URL-encoded in key-value tuples separated by '&'
-    case formUrlEncoded = "application/x-www-form-urlencoded"
+    public static let formUrlEncoded = Self("application/x-www-form-urlencoded")
 
     // HTTP form: each value is sent as a block of data
-    case formDataMultipart = "multipart/form-data"
+    public static let formDataMultipart = Self("multipart/form-data")
+
 }
