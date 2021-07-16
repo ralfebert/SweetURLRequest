@@ -1,10 +1,13 @@
 # SweetURLRequest
 
-`SweetURLRequest` provides convenience methods for creating an [URLRequest](https://developer.apple.com/documentation/foundation/urlrequest):
+Extensions for [URLRequest](https://developer.apple.com/documentation/foundation/urlrequest):
 
 ⚡ Constants for HTTP methods  
 ⚡ Properties to set common HTTP headers  
-⚡ URL/Form/JSON encoded parameters
+⚡ URL/Form/JSON encoded parameters  
+
+Extensions for [HTTPURLResponse](https://developer.apple.com/documentation/foundation/httpurlresponse):
+
 ⚡ Enums to check HTTP status codes via switch/case
 
 ## Examples
