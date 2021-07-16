@@ -121,7 +121,7 @@ public enum HTTPStatusCode: Int, Error {
     case alreadyReported = 208
 
     /// - IMUsed: The server has fulfilled a request for the resource, and the response is a representation of the result of one or more instance-manipulations applied to the current instance.
-    case IMUsed = 226
+    case imUsed = 226
 
     //
     // Redirection - 3xx

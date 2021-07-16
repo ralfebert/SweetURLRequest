@@ -67,8 +67,8 @@ final class SweetURLRequestTests: XCTestCase {
         XCTAssertEqual(.formUrlEncoded, request.headers.contentType)
     }
 
-    func testJsonBody() {
-        let request = URLRequest(method: .post, url: URL(string: "http://www.example.com")!, jsonBody: Person(name: "Bob"))
+    func testJsonBody() throws {
+        let request = try URLRequest(method: .post, url: URL(string: "http://www.example.com")!, jsonBody: Person(name: "Bob"))
         XCTAssertEqual("{\"name\":\"Bob\"}", String(data: request.httpBody ?? Data(), encoding: .ascii))
         XCTAssertEqual(.json, request.headers.contentType)
     }

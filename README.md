@@ -41,7 +41,7 @@ URLRequest(
 You can also pass a JSON body, this will use JSONEncoder to serialize the given data and set an appropriate Content-Type header:
 
 ```swift
-URLRequest(
+try URLRequest(
     method: .post,
     url: URL(string: "http://www.example.com")!,
     jsonBody: Person(name: "Bob")

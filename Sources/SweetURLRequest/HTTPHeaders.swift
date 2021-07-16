@@ -20,8 +20,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import HttpEnums
-
 public struct HTTPHeaders {
 
     var dictionary: [String: String]
@@ -31,14 +29,14 @@ public struct HTTPHeaders {
      */
     public var accept: ContentType? {
         get {
-            if let value = dictionary[HTTPHeader.accept.rawValue] {
+            if let value = dictionary[HTTPHeader.accept.name] {
                 return ContentType(rawValue: value)
             } else {
                 return nil
             }
         }
         set {
-            self.dictionary[HTTPHeader.accept.rawValue] = newValue?.rawValue
+            self.dictionary[HTTPHeader.accept.name] = newValue?.rawValue
         }
     }
 
@@ -47,14 +45,14 @@ public struct HTTPHeaders {
      */
     public var contentType: ContentType? {
         get {
-            if let value = dictionary[HTTPHeader.contentType.rawValue] {
+            if let value = dictionary[HTTPHeader.contentType.name] {
                 return ContentType(rawValue: value)
             } else {
                 return nil
             }
         }
         set {
-            self.dictionary[HTTPHeader.contentType.rawValue] = newValue?.rawValue
+            self.dictionary[HTTPHeader.contentType.name] = newValue?.rawValue
         }
     }
 
@@ -63,10 +61,10 @@ public struct HTTPHeaders {
      */
     public var authorization: String? {
         get {
-            self.dictionary[HTTPHeader.authorization.rawValue]
+            self.dictionary[HTTPHeader.authorization.name]
         }
         set {
-            self.dictionary[HTTPHeader.authorization.rawValue] = newValue
+            self.dictionary[HTTPHeader.authorization.name] = newValue
         }
     }
 
