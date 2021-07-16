@@ -5,6 +5,7 @@
 ⚡ Constants for HTTP methods  
 ⚡ Properties to set common HTTP headers  
 ⚡ URL/Form/JSON encoded parameters
+⚡ Enums to check HTTP status codes via switch/case
 
 ## Examples
 
@@ -48,3 +49,22 @@ try URLRequest(
 )
 ```
 
+### Enums to check HTTP status codes via switch/case
+
+```swift
+guard let httpResponse = response as? HTTPURLResponse else { return }
+
+let status = httpResponse.status
+
+guard status.responseType == .success else {
+    switch status {
+    case .unauthorized:
+        print("Unauthorized")
+    default:
+        print("Other non-success status: \(status)")
+    }
+    return
+}
+
+print("Handle success result")
+```
