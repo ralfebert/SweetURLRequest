@@ -1,16 +1,24 @@
 # SweetURLRequest
 
-Extensions for [URLRequest](https://developer.apple.com/documentation/foundation/urlrequest):
+SweetURLRequest simplifies common cases for creating an URLRequest and handling HTTPURLResponse.
+
+Extensions for URLRequest:
 
 ⚡ Constants for HTTP methods  
 ⚡ Properties to set common HTTP headers  
 ⚡ URL/Form/JSON encoded parameters  
 
-Extensions for [HTTPURLResponse](https://developer.apple.com/documentation/foundation/httpurlresponse):
+Extensions for HTTPURLResponse:
 
-⚡ Enums to check HTTP status codes via switch/case
+⚡ Check for a 2xx success status code  
+⚡ Handle HTTP status codes via switch/case  
+⚡ Error enum for HTTP status codes
 
 ## Examples
+
+### Example project
+
+ [MetMuseumEndpoints: A Swift package for the The Metropolitan Museum of Art Collection API](https://github.com/ralfebert/MetMuseumEndpoints)
 
 ### Constants for HTTP methods
 
@@ -52,22 +60,29 @@ try URLRequest(
 )
 ```
 
-### Enums to check HTTP status codes via switch/case
+### Check for a success status code in the 2xx range
 
 ```swift
-guard let httpResponse = response as? HTTPURLResponse else { return }
-
-let status = httpResponse.status
-
-guard status.responseType == .success else {
-    switch status {
-    case .unauthorized:
-        print("Unauthorized")
-    default:
-        print("Other non-success status: \(status)")
-    }
-    return
+func expectSuccess(response: URLResponse) throws {
+    let status = (response as! HTTPURLResponse).status
+    guard status.responseType == .success else { throw status }
 }
+```
 
-print("Handle success result")
+### Handle HTTP status codes via switch/case, throw a status code as Error
+
+```swift
+func validate(response: URLResponse) throws {
+    let status = (response as! HTTPURLResponse).status
+
+    guard status.responseType == .success else {
+        switch status {
+        case .unauthorized:
+            print("Unauthorized")
+        default:
+            print("Non-success status: \(status)")
+        }
+        throw status
+    }
+}
 ```
