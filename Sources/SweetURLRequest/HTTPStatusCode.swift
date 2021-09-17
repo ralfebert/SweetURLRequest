@@ -378,11 +378,3 @@ public enum HTTPStatusCode: Error, Equatable, Hashable {
     }()
 
 }
-
-public extension HTTPURLResponse {
-
-    var status: HTTPStatusCode {
-        return HTTPStatusCode(self.statusCode)
-    }
-
-}
