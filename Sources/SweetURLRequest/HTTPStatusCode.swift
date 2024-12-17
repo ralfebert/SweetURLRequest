@@ -378,3 +378,11 @@ public enum HTTPStatusCode: Error, Equatable, Hashable {
     }()
 
 }
+
+extension HTTPStatusCode: CustomNSError {
+
+    public static var errorDomain: String { "HTTPStatus" }
+    public var errorCode: Int { self.rawValue }
+    public var errorUserInfo: [String: Any] { [:] }
+
+}
